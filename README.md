@@ -43,9 +43,11 @@ fixture `<tool_name>_stdout`)
 
 ## #2 Implement the validate() method
 In order to have a working plugin, the **`validate()` method has to be implemented**
-within the validator class:
- - *Expected output*: dictionary with the results of the validation through the boolean
-   variable `valid`. The most simple definition of the `validate()` method could be:
+within the generated validator class (within `main.py` file). Things to consider:
+ - The *validate() method must return a dictionary* containing the validation outcome
+   through the `valid` key, which is a boolean variable that sets the validation as
+   successful (`True`) or unsuccessful (`False`). As an example, the most simple
+   definition of the `validate()` method could be:
    ```python
    class FooValidator(BaseValidator):
        valid = False
@@ -54,3 +56,13 @@ within the validator class:
        def validate():
            return {'valid': self.valid}
    ```
+  - The *validator class* has the following attributes:
+    - `name`: validator name (available as `self.name`)
+    - `opts`: object that contains the attributes provided when the class is 
+      instantiated. Those are the same as the input arguments of the
+      [report2sqaaas](https://github.com/eosc-synergy/reporting-sqaaas) module,
+      such as `validator` (available as class attribute `self.opts.validator`),
+      `stdout` (`self.opts.stdout`) or `threshold` (`self.opts.threshold`).
+  - A reminder that the [available test cases](%7B%7Bcookiecutter.criterion%7D%7D_%7B%7Bcookiecutter.plugin_name%7D%7D/tests/test_validator.py) will only be
+    successful when both the i) `validate()` method has been implemented and ii) a
+    sample output is provided via the pytest fixture `<tool_name_stdout`>.

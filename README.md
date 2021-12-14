@@ -11,21 +11,21 @@ $ cookiecutter https://github.com/EOSC-synergy/sqaaas-reporting-cookiecutter
 ```
 
 ### The module structure
-The following structure is created by cookiecutter:
+The following folder structure is created by cookiecutter:
 ```
-.
-├── CONTRIBUTING.md
-├── LICENSE
-├── README.md
-├── report2sqaaas_plugins_{{cookiecutter.plugin_name}}
-│   ├── __init__.py
-│   ├── main.py
-├── requirements.txt
-├── setup.cfg
-├── setup.py
-├── test-requirements.txt
-└── tests
-    └── test_validator.py
+└── {{cookiecutter.criterion}}_{{cookiecutter.plugin_name}}
+    ├── CONTRIBUTING.md
+    ├── LICENSE
+    ├── README.md
+    ├── report2sqaaas_plugins_{{cookiecutter.plugin_name}}
+    │   ├── __init__.py
+    │   ├── main.py
+    ├── requirements.txt
+    ├── setup.cfg
+    ├── setup.py
+    ├── test-requirements.txt
+    └── tests
+        └── test_validator.py
 ```
 
 ### A note about testing

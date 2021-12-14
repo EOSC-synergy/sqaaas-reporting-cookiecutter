@@ -4,7 +4,7 @@
 
 * [Description](#description)
 * [Installation](#installation)
-* [Configuration](#installation)
+* [Testing](#testing)
 * [Trying it out](#trying-it-out)
 * [Contribution](#contribution)
 * [License](#license)
@@ -25,6 +25,12 @@ deployed in your environment for the plugin to work. To this end, you can
 use the [requirements.txt](requirements.txt) file included with this package:
 ```
 $ pip install -r requirements.txt
+```
+
+## Testing
+Use [pytest](https://pytest.org/) module to run the test cases:
+```
+$ pytest
 ```
 
 ## Trying it out

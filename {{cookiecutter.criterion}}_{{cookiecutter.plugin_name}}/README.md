@@ -30,6 +30,7 @@ $ pip install -r requirements.txt
 ## Testing
 Use [pytest](https://pytest.org/) module to run the test cases:
 ```
+$ pip install -r test-requirements.txt
 $ pytest
 ```
 

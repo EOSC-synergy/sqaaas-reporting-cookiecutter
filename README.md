@@ -7,7 +7,8 @@ If not already in your environment, install
 $ pip install cookiecutter
 ```
 
-Now you are ready to create the validator plugin module:
+Now you are ready to create the validator plugin module using the 
+template from this repository:
 ```console
 $ cookiecutter https://github.com/EOSC-synergy/sqaaas-reporting-cookiecutter
 ```

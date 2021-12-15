@@ -77,9 +77,42 @@ contribute to the existing set of validator plugins of the SQAaaS reporting comp
 To this end, create a pull request to
 [reporting-sqaaas-plugins](https://github.com/eosc-synergy/sqaaas-reporting-plugins).
 
-1. Fork https://github.com/eosc-synergy/sqaaas-reporting-plugins and clone it.
-2. Run cookiecutter as in previous step #1.
+
+# Recommended workflow
+
+1. Fork https://github.com/eosc-synergy/sqaaas-reporting-plugins, clone it & chdir to it.
+2. Create a Python virtualenv to install the dependencies:
+   ```console
+   $ python3 -m venv venv
+   $ source venv/bin/activate
+   $ pip install cookiecutter
+   ```
+3. Run cookiecutter as in previous step #1.
    - This will place the new validator plugin within the root path of the fork repository.
-3. Implement the `validate()` method taking into account the remarks of step #2.
-3. Add & commit the changes to your fork.
-4. Create a PR to the upstream repo (from where the fork has been created).
+   ```console
+   $ cookiecutter https://github.com/EOSC-synergy/sqaaas-reporting-cookiecutter
+   ```
+4. Chdir to the root path of the generated plugin (`<criterion_name>_<tool_name>` folder)
+5. Install plugin dependencies
+   ```console
+   $ pip install -r requirements.txt
+   $ pip install -r test-requirements.txt
+   ```
+6. Follow the TDD approach by running `pytest` to double check that the `validate()` method
+   is not yet implemented.
+   ```console
+   $ pytest -svv
+   ```
+7. Implement the `validate()` method taking into account the remarks from step #2.
+8. Try your new validator using `report2sqaaas` CLI.
+   - First you need to generate the output from the tool being validated.
+   ```console
+   $ # Generate the <tool_name> output & store it in <file_name>
+   $ report2sqaaas <plugin_name> <file_name>
+   ```
+9. Once the plugin is doing the expected job, rerun the tests:
+   ```console
+   $ pytest -svv
+   ```
+10. Add & commit the plugin within the fork.
+12. Create a PR to the upstream repo (from where the fork has been created).

@@ -33,6 +33,12 @@ Use [pytest](https://pytest.org/) module to run the test cases:
 $ pip install -r test-requirements.txt
 $ pytest
 ```
+### About validate() method
+The `validate()` method has to be implemented for the tests to pass successfully.
+If pytest returns the exception:
+```TypeError: Can't instantiate abstract class LicenseeValidator with abstract method validate```
+then this means that the method is not implemented in the generated validator class.
+
 
 ## Trying it out
 The plugin can be readily used through the CLI offered by the

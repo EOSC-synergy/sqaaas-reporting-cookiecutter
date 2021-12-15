@@ -5,15 +5,15 @@ from report2sqaaas_plugins_{{cookiecutter.plugin_name}}.main import {{cookiecutt
 
 
 @pytest.fixture
-def {{cookiecutter.tool_name}}_stdout():
+def {{cookiecutter.plugin_name}}_stdout():
     # FIXME Return a sample tool's stdout as string
     return ""
 
 @pytest.fixture
-def validator_opts({{cookiecutter.tool_name}}_stdout):
+def validator_opts({{cookiecutter.plugin_name}}_stdout):
     class_args = {
         'validator': '{{cookiecutter.plugin_name}}',
-        'stdout': {{cookiecutter.tool_name}}_stdout
+        'stdout': {{cookiecutter.plugin_name}}_stdout
     }
     return SimpleNamespace(**class_args)
 

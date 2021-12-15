@@ -33,7 +33,7 @@ The following folder structure is created by cookiecutter:
 
 ### A note about testing
 A test-driven development (TDD) approach is followed in order to make sure that
-the main validator class, `validate()`, has been defined. Thus, the generated 
+the `validate()` method has been defined in the validator class. Thus, the generated 
 module provides two test cases out of the box:
 - `validate()` method has been implemented.
 - `validate()` method returns a dictionary with the `valid` flag.
@@ -42,13 +42,12 @@ module provides two test cases out of the box:
 fixture `<tool_name>_stdout`)
 
 ## #2 Implement the validate() method
-In order to have a working plugin, the **`validate()` method has to be implemented**
-within the generated validator class (within `main.py` file).
-
-The *validate() method must return a dictionary* containing the validation outcome
-through the `valid` key, which is a boolean variable that sets the validation as
-successful (`True`) or unsuccessful (`False`). As an example, the most simple
-definition of the `validate()` method could be:
+The `validate()` method must:
+1. Implemented in the validator class.
+2. Return a dictionary* containing *at least* the `valid` key, with a boolean value
+   (True|False) that marks the validation as successful or unsuccessful.
+   
+The most simple example could be:
 ```python
 class FooValidator(BaseValidator):
     valid = False
@@ -58,25 +57,28 @@ class FooValidator(BaseValidator):
        return {'valid': self.valid}
 ```
 
-A few things to consider:
-  - The *validator class* has the following attributes:
-    - `name`: validator name (available as `self.name`)
-    - `opts`: object that contains the attributes provided when the class is 
-      instantiated. Those are the same as the input arguments of the
-      [report2sqaaas](https://github.com/eosc-synergy/reporting-sqaaas) module,
-      such as `validator` (available as class attribute `self.opts.validator`),
-      `stdout` (`self.opts.stdout`) or `threshold` (`self.opts.threshold`).
-  - A reminder that the [available test cases](%7B%7Bcookiecutter.criterion%7D%7D_%7B%7Bcookiecutter.plugin_name%7D%7D/tests/test_validator.py) will only be
-    successful when both the i) `validate()` method has been implemented and ii) a
-    sample output is provided via the pytest fixture `<tool_name_stdout`>.
+### Some remarks when implementing validate() method
+- The *validator class* has the following *set of attributes* that can be used when
+  implementing the `validate()` method
+  - `name`: validator name (available as `self.name`)
+  - `opts`: object that contains the attributes provided when the class is 
+    instantiated. Those are the same as the input arguments of the
+    [report2sqaaas](https://github.com/eosc-synergy/reporting-sqaaas) module,
+    such as `validator` (available as class attribute `self.opts.validator`),
+    `stdout` (`self.opts.stdout`) or `threshold` (`self.opts.threshold`).
+- The validator's test cases require a sample output of the tool being validated
+  in order to successfully pass the `test_validate_method_output` test. The *output
+  shall be placed within the pytest fixture `<tool_name>_stdout()`* in
+  [test_validator.py](%7B%7Bcookiecutter.criterion%7D%7D_%7B%7Bcookiecutter.plugin_name%7D%7D/tests/test_validator.py).
     
 ## #3 Contribute to reporting-sqaaas-plugins
-Once you have implemented the validate() method and the tests are passing, you should
+Once you have implemented the `validate()` method and the tests are passing, you should
 contribute to the existing set of validator plugins of the SQAaaS reporting component.
 To this end, create a pull request to
 [reporting-sqaaas-plugins](https://github.com/eosc-synergy/sqaaas-reporting-plugins).
 
 1. Fork https://github.com/eosc-synergy/sqaaas-reporting-plugins and clone it
-2. Copy the validator plugin folder (with the structure from step #1) into the cloned repo
+2. Run cookiecutter as in previous [step #1](use-cookiecuttter-template)
+   - This will place the new validator plugin within the root path of the fork repository.
 3. Add & commit the changes to your fork
 4. Create a PR to the upstream repo (from where the fork has been created)

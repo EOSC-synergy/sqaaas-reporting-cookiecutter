@@ -70,6 +70,8 @@ class FooValidator(BaseValidator):
   in order to successfully pass the `test_validate_method_output` test. The *output
   shall be placed within the pytest fixture `<tool_name>_stdout()`* in
   [test_validator.py](%7B%7Bcookiecutter.criterion%7D%7D_%7B%7Bcookiecutter.plugin_name%7D%7D/tests/test_validator.py).
+  The generated plugin will contain 
+  [instructions on how to run the tests](%7B%7Bcookiecutter.criterion%7D%7D_%7B%7Bcookiecutter.plugin_name%7D%7D/README.md#testing).
     
 ## #3 Contribute to reporting-sqaaas-plugins
 Once you have implemented the `validate()` method and the tests are passing, you should

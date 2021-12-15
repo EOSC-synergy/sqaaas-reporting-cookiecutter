@@ -10,23 +10,26 @@ def {{cookiecutter.tool_name}}_stdout():
     return ""
 
 @pytest.fixture
-def validator({{cookiecutter.tool_name}}_stdout):
+def validator_opts({{cookiecutter.tool_name}}_stdout):
     class_args = {
         'validator': '{{cookiecutter.plugin_name}}',
         'stdout': {{cookiecutter.tool_name}}_stdout
     }
-    opts = SimpleNamespace(**class_args)
-    return {{cookiecutter.plugin_class_name}}(opts)
+    return SimpleNamespace(**class_args)
 
 
-def test_is_validate_method_defined(validator):
-    try:
-        validator.validate()
-    except TypeError:
-        pytest.fail('{{cookiecutter.plugin_class_name}} class does not implement validate() method')
+@pytest.fixture
+def validator(validator_opts):
+    return {{cookiecutter.plugin_class_name}}(validator_opts)
 
 
-def test_is_validate_method_output(validator):
+@pytest.mark.dependency()
+def test_is_validate_method_defined(validator_opts):
+    assert LicenseeValidator(validator_opts).validate()
+
+
+@pytest.mark.dependency(depends=["test_is_validate_method_defined"])
+def test_validate_method_output(validator):
     result = validator.validate()
     assert type(result) is dict
     assert 'valid' in list(result)

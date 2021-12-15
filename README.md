@@ -1,3 +1,6 @@
+* [Steps to implement a SQAaaS reporting plugin](#steps-to-implement-a-sqaaas-reporting-plugin)
+* [Recommended workflow](#recommended-workflow)
+
 # Steps to implement a SQAaaS reporting plugin
 
 ## #1 Generate the plugin's Python module

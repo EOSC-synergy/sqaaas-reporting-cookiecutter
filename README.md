@@ -1,4 +1,6 @@
-## #1 Generate the SQAaaS reporting plugin's module
+# Steps to implement a SQAaaS reporting plugin
+
+## #1 Generate the plugin's Python module
 
 ### Use cookiecuttter template
 If not already in your environment, install 
@@ -13,7 +15,7 @@ template from this repository:
 $ cookiecutter https://github.com/EOSC-synergy/sqaaas-reporting-cookiecutter
 ```
 
-### The module structure
+### The plugin module structure
 The following folder structure is created by cookiecutter:
 ```console
 └── {{cookiecutter.criterion}}_{{cookiecutter.plugin_name}}
@@ -38,9 +40,6 @@ module provides two test cases out of the box:
 - `validate()` method has been implemented.
 - `validate()` method returns a dictionary with the `valid` flag.
 
-*Note: the plugin developer needs to provide a sample output of the tool* (within the
-fixture `<tool_name>_stdout`)
-
 ## #2 Implement the validate() method
 The `validate()` method must:
 1. Implemented in the validator class.
@@ -56,7 +55,6 @@ class FooValidator(BaseValidator):
     def validate():
        return {'valid': self.valid}
 ```
-
 ### Some remarks when implementing validate() method
 - The *validator class* has the following *set of attributes* that can be used when
   implementing the `validate()` method
@@ -79,8 +77,9 @@ contribute to the existing set of validator plugins of the SQAaaS reporting comp
 To this end, create a pull request to
 [reporting-sqaaas-plugins](https://github.com/eosc-synergy/sqaaas-reporting-plugins).
 
-1. Fork https://github.com/eosc-synergy/sqaaas-reporting-plugins and clone it
-2. Run cookiecutter as in previous [step #1](use-cookiecuttter-template)
+1. Fork https://github.com/eosc-synergy/sqaaas-reporting-plugins and clone it.
+2. Run cookiecutter as in previous step #1.
    - This will place the new validator plugin within the root path of the fork repository.
-3. Add & commit the changes to your fork
-4. Create a PR to the upstream repo (from where the fork has been created)
+3. Implement the `validate()` method taking into account the remarks of step #2.
+3. Add & commit the changes to your fork.
+4. Create a PR to the upstream repo (from where the fork has been created).

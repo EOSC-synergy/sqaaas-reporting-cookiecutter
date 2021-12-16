@@ -1,10 +1,10 @@
 {
     "plugin_name": "licensee",
     "tool_name": "licensee",
+    "tool_url": "https://github.com/licensee/licensee",
     "criterion": ["qc_acc", "qc_del", "qc_doc", "qc_fair", "qc_lic", "qc_man", "qc_met", "qc_sec", "qc_sty", "qc_uni", "qc_ver", "qc_wor"],
     "author": "Jane Doe",
     "author_email": "jdoe@janedoe.org",
-    "description": "This plugin validates the output of the [licensee](https://github.com/licensee/licensee) tool.",
     "plugin_class_name": "LicenseeValidator",
     "has_threshold": false
 }

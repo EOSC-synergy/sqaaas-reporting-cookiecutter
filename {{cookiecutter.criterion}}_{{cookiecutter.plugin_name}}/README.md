@@ -11,7 +11,7 @@
 
 
 ## Description
-{{cookiecutter.description}}
+This plugin validates the output of the [{{cookiecutter.tool_name}}]({{cookiecutter.tool_url}}) tool."
 
 ## Installation
 The plugin can be installed from this repository using `pip`:

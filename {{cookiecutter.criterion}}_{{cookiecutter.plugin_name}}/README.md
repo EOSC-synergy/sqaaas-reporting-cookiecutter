@@ -17,6 +17,10 @@ The plugin can be installed from this repository using `pip`:
 ```
 $ pip install git+https://github.com/EOSC-synergy/sqaaas-reporting-plugins@main#egg=report2sqaaas-plugin-{{cookiecutter.plugin_name}}&subdirectory={{cookiecutter.criterion}}_{{cookiecutter.plugin_name}}
 ```
+### Configuration
+No additional configuration is needed. The plugin is added to the
+`sqaaas.validators` namespace, which is scoped by the
+[report2sqaaas](https://github.com/eosc-synergy/sqaaas-reporting) application.
 ### Trying it out
 The plugin can be readily used through the CLI offered by the
 [report2sqaaas](https://github.com/eosc-synergy/sqaaas-reporting) module:
@@ -31,11 +35,6 @@ use the [requirements.txt](requirements.txt) file included with this package:
 ```
 $ pip install -r requirements.txt
 ```
-
-## Configuration
-No additional configuration is needed. The plugin is added to the
-`sqaaas.validators` namespace, which is scoped by the
-[report2sqaaas](https://github.com/eosc-synergy/sqaaas-reporting) application.
 
 ## Development and Testing
 While on development, deploy the plugin in editable mode:

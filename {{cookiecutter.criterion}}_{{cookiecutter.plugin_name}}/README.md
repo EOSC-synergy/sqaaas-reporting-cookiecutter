@@ -40,6 +40,7 @@ No additional configuration is needed. The plugin is added to the
 ## Development and Testing
 While on development, deploy the plugin in editable mode:
 ```
+pip install -r requirements.txt
 pip install -e .
 ```
 

@@ -92,7 +92,7 @@ To this end, create a pull request to
    $ source venv/bin/activate
    $ pip install cookiecutter
    ```
-3. Run cookiecutter as in previous step #1.
+3. Run cookiecutter (as described in previous remark #1):
    - This will place the new validator plugin within the root path of the fork repository.
    ```console
    $ cookiecutter https://github.com/EOSC-synergy/sqaaas-reporting-cookiecutter
@@ -110,7 +110,7 @@ To this end, create a pull request to
      $ pytest -svv
      ```
 5. Implement the `validate()` method.
-   - Follow remarks from previous section (step #2)
+   - Follow remarks from previous section (remark #2)
    - Deploy your plugin:
      ```console
      $ pip install -e .

@@ -1,4 +1,4 @@
-# Cookiecutter template to generate the code for the reporting plugins used by the SQAaaS
+# Cookiecutter template for SQAaaS reporting plugins (aka validators)
 
 Follow the [recommended workflow](#recommended-workflow) at the end of this document to
 quick-start the plugin implementation.

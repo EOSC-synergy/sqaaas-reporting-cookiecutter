@@ -46,7 +46,7 @@ pip install -e .
 Use [pytest](https://pytest.org/) module to run the test cases:
 ```
 $ pip install -r test-requirements.txt
-$ pytest
+$ pytest -svv
 ```
 ### About validate() method
 The `validate()` method has to be implemented for the tests to pass successfully.

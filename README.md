@@ -1,11 +1,13 @@
-* [Steps to implement a SQAaaS reporting plugin](#steps-to-implement-a-sqaaas-reporting-plugin)
-* [Recommended workflow](#recommended-workflow)
+# Cookiecutter template to generate the code for the reporting plugins used by the SQAaaS
 
-# Steps to implement a SQAaaS reporting plugin
+Follow the [recommended workflow](#recommended-workflow) at the end of this document to
+quick-start the plugin implementation.
 
-## #1 Generate the plugin's Python module
+## Remarks on the plugin implementation
 
-### Use cookiecuttter template
+### #1 Generate the Python module structure for the plugin
+
+#### Use the present cookiecuttter template
 If not already in your environment, install 
 [cookiecutter](https://cookiecutter.readthedocs.io/) executable:
 ```console
@@ -18,7 +20,7 @@ template from this repository:
 $ cookiecutter https://github.com/EOSC-synergy/sqaaas-reporting-cookiecutter
 ```
 
-### The plugin module structure
+#### The plugin module structure
 The following folder structure is created by cookiecutter:
 ```console
 └── {{cookiecutter.criterion}}_{{cookiecutter.plugin_name}}
@@ -36,14 +38,14 @@ The following folder structure is created by cookiecutter:
         └── test_validator.py
 ```
 
-### A note about testing
+#### A note about testing
 A test-driven development (TDD) approach is followed in order to make sure that
 the `validate()` method has been defined in the validator class. Thus, the generated 
 module provides two test cases out of the box:
 - `validate()` method has been implemented.
 - `validate()` method returns a dictionary with the `valid` flag.
 
-## #2 Implement the validate() method
+### #2 Implement the validate() method
 The `validate()` method must:
 1. Implemented in the validator class.
 2. Return a dictionary* containing *at least* the `valid` key, with a boolean value
@@ -58,7 +60,7 @@ class FooValidator(BaseValidator):
     def validate():
        return {'valid': self.valid}
 ```
-### Some remarks when implementing validate() method
+#### Some remarks when implementing validate() method
 - The *validator class* has the following *set of attributes* that can be used when
   implementing the `validate()` method
   - `name`: validator name (available as `self.name`)
@@ -74,14 +76,14 @@ class FooValidator(BaseValidator):
   The generated plugin will contain 
   [instructions on how to run the tests](%7B%7Bcookiecutter.criterion%7D%7D_%7B%7Bcookiecutter.plugin_name%7D%7D/README.md#testing).
     
-## #3 Contribute to reporting-sqaaas-plugins
+### #3 Contribute to reporting-sqaaas-plugins
 Once you have implemented the `validate()` method and the tests are passing, you should
 contribute to the existing set of validator plugins of the SQAaaS reporting component.
 To this end, create a pull request to
 [reporting-sqaaas-plugins](https://github.com/eosc-synergy/sqaaas-reporting-plugins).
 
 
-# Recommended workflow
+## Recommended workflow
 
 1. Fork https://github.com/eosc-synergy/sqaaas-reporting-plugins, clone it & chdir to it.
 2. Create a Python virtualenv to install the dependencies:

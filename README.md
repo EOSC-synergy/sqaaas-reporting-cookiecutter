@@ -95,27 +95,34 @@ To this end, create a pull request to
    ```console
    $ cookiecutter https://github.com/EOSC-synergy/sqaaas-reporting-cookiecutter
    ```
-4. Chdir to the root path of the generated plugin (`<criterion_name>_<tool_name>` folder)
-5. Install plugin dependencies
-   ```console
-   $ pip install -r requirements.txt
-   $ pip install -r test-requirements.txt
-   ```
-6. Follow the TDD approach by running `pytest` to double check that the `validate()` method
-   is not yet implemented.
-   ```console
-   $ pytest -svv
-   ```
-7. Implement the `validate()` method taking into account the remarks from step #2.
-8. Try your new validator using `report2sqaaas` CLI.
-   - First you need to generate the output from the tool being validated.
-   ```console
-   $ # Generate the <tool_name> output & store it in <file_name>
-   $ report2sqaaas <plugin_name> <file_name>
-   ```
+4. Chdir to the root path of the generated plugin (`<criterion_name>_<tool_name>` folder) and deploy
+   the development environment:
+   - Install plugin dependencies:
+     ```console
+     $ pip install -r requirements.txt
+     $ pip install -r test-requirements.txt
+     ```
+   - Follow the TDD approach by running `pytest` to double check that the `validate()` method
+     is not yet implemented.
+     ```console
+     $ pytest -svv
+     ```
+5. Implement the `validate()` method.
+   - Follow remarks from previous section (step #2)
+   - Deploy your plugin:
+     ```console
+     $ pip install -e .
+     ```
+   - Try out your new validator using `report2sqaaas` CLI:
+     - First you need to generate the output from the tool being validated.
+     ```console
+     $ # Generate the <tool_name> output & store it in <file_name>
+     $ report2sqaaas <plugin_name> <file_name>
+     ```
 9. Once the plugin is doing the expected job, rerun the tests:
    ```console
    $ pytest -svv
    ```
+   and check that they are actually passing.
 10. Add & commit the plugin within the fork.
-12. Create a PR to the upstream repo (from where the fork has been created).
+11. Create a PR to the upstream repo (from where the fork has been created).

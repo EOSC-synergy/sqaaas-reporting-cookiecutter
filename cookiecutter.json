@@ -1,11 +1,20 @@
 {
-    "plugin_name": "licensee",
+    "[HELP 1]": "The plugin name must be a valid Python module name. Enter to continue...",
+    "plugin_name": "foo",
+    "[HELP 2]": "Name of the tool whose output will be validated. Enter to continue...",
     "tool_name": "licensee",
+    "[HELP 3]": "Homepage (URL) of the tool. Enter to continue...",
     "tool_url": "https://github.com/licensee/licensee",
+    "[HELP 4]": "Identifier of the SQAaaS criteria\n\t\t- Software QA criteria: https://indigo-dc.github.io/sqa-baseline\n\t\t- Service QA criteria: https://eosc-synergy.github.io/service-qa-baseline\n\t  Enter to continue...",
     "criterion": ["qc_acc", "qc_del", "qc_doc", "qc_fair", "qc_lic", "qc_man", "qc_met", "qc_sec", "qc_sty", "qc_uni", "qc_ver", "qc_wor"],
+    "[HELP 5]": "First and last name of the main developer. Enter to continue...",
     "author": "Jane Doe",
+    "[HELP 6]": "Email address of the main developer. Enter to continue...",
     "author_email": "jdoe@janedoe.org",
+    "[HELP 7]": "Name of the main plugin class. Enter to continue...",
     "plugin_class_name": "LicenseeValidator",
+    "[HELP 8]": "Does the plugin require a threshold for the successful validation? (True|False). Enter to continue...",
     "has_threshold": false,
+    "[HELP 9]": "Will the plugin report a list of subcriteria being fulfilled? (True|False). Enter to continue...",
     "has_subcriteria": false
 }

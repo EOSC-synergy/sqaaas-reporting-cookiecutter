@@ -6,5 +6,6 @@
     "author": "Jane Doe",
     "author_email": "jdoe@janedoe.org",
     "plugin_class_name": "LicenseeValidator",
-    "has_threshold": false
+    "has_threshold": false,
+    "has_subcriteria": false
 }

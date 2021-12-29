@@ -33,3 +33,7 @@ def test_validate_method_output(validator):
     result = validator.validate()
     assert type(result) is dict
     assert 'valid' in list(result)
+    {%- if cookiecutter.has_subcriteria %}
+    assert 'subcriteria' in list(result)
+    assert type(result['subcriteria']) is list
+    {% endif %}

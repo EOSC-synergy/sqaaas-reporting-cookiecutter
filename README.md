@@ -104,17 +104,21 @@ To this end, create a pull request to
      $ pip install -r requirements.txt
      $ pip install -r test-requirements.txt
      ```
+   - Install the plugin:
+     ```console
+     $ pip install -e .
+     ```
    - Follow the TDD approach by running `pytest` to double check that the `validate()` method
      is not yet implemented.
      ```console
      $ pytest -svv
      ```
+     `pytest` should show an error message similar to the one below:
+     ```console
+     TypeError: Can't instantiate abstract class FooValidator with abstract method validate
+     ```
 5. Implement the `validate()` method.
    - Follow remarks from previous section (remark #2)
-   - Deploy your plugin:
-     ```console
-     $ pip install -e .
-     ```
    - Try out your new validator using `report2sqaaas` CLI:
      - First you need to generate the output from the tool being validated.
      ```console

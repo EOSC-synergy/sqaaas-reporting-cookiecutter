@@ -51,7 +51,7 @@ $ pytest -svv
 ### About validate() method
 The `validate()` method has to be implemented for the tests to pass successfully.
 If pytest returns the exception:
-```TypeError: Can't instantiate abstract class LicenseeValidator with abstract method validate```
+```TypeError: Can't instantiate abstract class FooValidator with abstract method validate```
 then this means that the method is not implemented in the generated validator class.
 
 

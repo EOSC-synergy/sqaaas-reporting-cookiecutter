@@ -1,6 +1,6 @@
 {
     "\n** This template helps you create an output validator plugin for the SQAaaS platform **\n\nYou will be prompted to fill in a few values required for the plugin creation:\n  - Check out their definition at https://github.com/EOSC-synergy/sqaaas-reporting-cookiecutter/blob/main/README.md#the-template-input-data\n  - The default values will be indicated between brackets when applicable\n\n": "Press <Enter> to continue...",
-    "\nplugin_name": "foo",
+    "plugin_name": "foo",
     "tool_name": "foo",
     "tool_url": "https://example.org/foo",
     "criterion": ["qc_acc", "qc_del", "qc_doc", "qc_fair", "qc_lic", "qc_man", "qc_met", "qc_sec", "qc_sty", "qc_uni", "qc_ver", "qc_wor", "qc_ALL"],

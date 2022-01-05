@@ -1,20 +1,12 @@
 {
-    "[HELP: plugin_name]": "The plugin name must be a valid Python module name. Enter to continue...",
-    "plugin_name": "foo",
-    "[HELP: tool_name]": "Name of the tool whose output will be validated. Enter to continue...",
+    "\n** This template helps you create an output validator plugin for the SQAaaS platform **\n\nYou will be prompted to fill in a few values required for the plugin creation:\n  - Check out their definition at https://github.com/EOSC-synergy/sqaaas-reporting-cookiecutter/blob/main/README.md#the-template-input-data\n  - The default values will be indicated between brackets when applicable\n\n": "Press <Enter> to continue...",
+    "\nplugin_name": "foo",
     "tool_name": "foo",
-    "[HELP: tool_url]": "Homepage (URL) of the tool. Enter to continue...",
     "tool_url": "https://example.org/foo",
-    "[HELP: criterion]": "Identifier of the SQAaaS criteria the tool validator fits best into. Check them out in the following links:\n\t\t- Software QA criteria: https://indigo-dc.github.io/sqa-baseline\n\t\t- Service QA criteria: https://eosc-synergy.github.io/service-qa-baseline\n\t  _Note_: there is a special option <qc_ALL> meant for validating common & simple tool stdouts, such as boolean values. Enter to continue...",
     "criterion": ["qc_acc", "qc_del", "qc_doc", "qc_fair", "qc_lic", "qc_man", "qc_met", "qc_sec", "qc_sty", "qc_uni", "qc_ver", "qc_wor", "qc_ALL"],
-    "[HELP: author]": "First and last name of the main developer. Enter to continue...",
     "author": "Jane Doe",
-    "[HELP: author_email]": "Email address of the main developer. Enter to continue...",
     "author_email": "jdoe@janedoe.org",
-    "[HELP: plugin_class_name]": "Name of the main plugin class. Enter to continue...",
     "plugin_class_name": "FooValidator",
-    "[HELP: has_threshold]": "Does the plugin require a threshold for the successful validation? (yes|no). Enter to continue...",
     "has_threshold": "no",
-    "[HELP: has_subcriteria]": "Will the plugin report a list of subcriteria being fulfilled? (yes|no). Enter to continue...",
     "has_subcriteria": "no"
 }

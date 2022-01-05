@@ -53,18 +53,34 @@ The following folder structure is created by cookiecutter:
         └── test_validator.py
 ```
 
-#### A note about testing
-A test-driven development (TDD) approach is followed in order to make sure that
-the `validate()` method has been defined in the validator class. Thus, the generated
-module provides two test cases out of the box:
-- `validate()` method has been implemented.
-- `validate()` method returns a dictionary with the `valid` flag.
+#### The template input data
+At the time of writing, the cookiecutter tool does not provide a straightforward
+way to explain the inputs needed from the user in order to create the plugin. As
+a consequence, this section will explain them further:
+* `plugin_name`: a valid Python module name for the plugin.
+* `tool_name`: name of the tool whose output will be validated by the plugin.
+* `tool_url`: homepage (URL) of the tool.
+* `criterion`: identifier of the quality criterion supported by SQAaaS the given
+   tool fits best into. Check out the definition of the supported criteria in the
+   following links:
+   - Software QA criteria: https://indigo-dc.github.io/sqa-baseline
+   - Service QA criteria: https://eosc-synergy.github.io/service-qa-baseline
+   
+   _Note: there is a special value `qc_ALL` meant for validating common stdouts,
+           such as boolean values_
+ * `author`: first and last name of the main developer.
+ * `author_email`: email address of the main developer.
+ * `plugin_class_name`: name of the main plugin class.
+ * `has_threshold`: say 'yes' if the plugin require a threshold for the successful
+    validation.
+ * `has_threshold`: say 'yes' when the plugin reports a list of subcriteria being
+   fulfilled.
 
 ### Implement the validate() method
 The `validate()` method must:
-1. Implemented in the validator class.
+1. Be implemented in the validator class.
    - It is a class method so it must define the `self` argument (see example below)
-3. Return a dictionary* containing *at least* the `valid` key, with a boolean value
+3. Return a dictionary containing *at least* the `valid` key, with a boolean value
    (True|False) that marks the validation as successful or unsuccessful.
 
 The most simple example could be:
@@ -77,19 +93,25 @@ class FooValidator(BaseValidator):
 ```
 #### Some remarks when implementing validate() method
 - The *validator class* has the following *set of attributes* that can be used when
-  implementing the `validate()` method
+  implementing the `validate()` method:
   - `name`: validator name (available as `self.name`)
   - `opts`: object that contains the attributes provided when the class is
     instantiated. Those are the same as the input arguments of the
     [report2sqaaas](https://github.com/eosc-synergy/reporting-sqaaas) module,
     such as `validator` (available as class attribute `self.opts.validator`),
     `stdout` (`self.opts.stdout`) or `threshold` (`self.opts.threshold`).
-- The validator's test cases require a sample output of the tool being validated
-  in order to successfully pass the `test_validate_method_output` test. The *output
-  shall be placed within the pytest fixture `<tool_name>_stdout()`* in
-  [test_validator.py](%7B%7Bcookiecutter.criterion%7D%7D_%7B%7Bcookiecutter.plugin_name%7D%7D/tests/test_validator.py).
-  The generated plugin will contain
-  [instructions on how to run the tests](%7B%7Bcookiecutter.criterion%7D%7D_%7B%7Bcookiecutter.plugin_name%7D%7D/README.md#testing).
+- The validator's test cases..
+  - They follow a test-driven development (TDD) approach in order to make sure that
+    the `validate()` method has been defined in the validator class. Thus, the
+    generated module provides two test cases out of the box:
+    - `validate()` method has been implemented.
+    - `validate()` method returns a dictionary with the `valid` flag.
+  - They require a sample output of the tool being validated in order to successfully
+    pass the `test_validate_method_output` test. The *output shall be placed within 
+    the pytest fixture `<tool_name>_stdout()`* in
+    [test_validator.py](%7B%7Bcookiecutter.criterion%7D%7D_%7B%7Bcookiecutter.plugin_name%7D%7D/tests/test_validator.py).
+    The generated plugin will contain
+    [instructions on how to run the tests](%7B%7Bcookiecutter.criterion%7D%7D_%7B%7Bcookiecutter.plugin_name%7D%7D/README.md#testing).
 
 ### Contribute to reporting-sqaaas-plugins
 Once you have implemented the `validate()` method and the tests are passing, you should

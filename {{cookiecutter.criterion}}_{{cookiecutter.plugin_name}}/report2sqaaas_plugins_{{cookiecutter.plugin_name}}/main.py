@@ -9,7 +9,7 @@ logger = logging.getLogger('sqaaas.reporting.plugins.{{cookiecutter.plugin_name 
 class {{cookiecutter.plugin_class_name}}(sqaaas_utils.BaseValidator):
     valid = False
 
-    {%- if cookiecutter.has_threshold == false %}
+    {%- if cookiecutter.has_threshold == True %}
     @staticmethod
     def populate_parser(parser):
         parser.add_argument(

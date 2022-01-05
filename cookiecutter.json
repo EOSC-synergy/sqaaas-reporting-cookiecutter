@@ -13,8 +13,8 @@
     "author_email": "jdoe@janedoe.org",
     "[HELP: plugin_class_name]": "Name of the main plugin class. Enter to continue...",
     "plugin_class_name": "FooValidator",
-    "[HELP: has_threshold]": "Does the plugin require a threshold for the successful validation? (True|False). Enter to continue...",
-    "has_threshold": false,
-    "[HELP: has_subcriteria]": "Will the plugin report a list of subcriteria being fulfilled? (True|False). Enter to continue...",
-    "has_subcriteria": false
+    "[HELP: has_threshold]": "Does the plugin require a threshold for the successful validation? (yes|no). Enter to continue...",
+    "has_threshold": "no",
+    "[HELP: has_subcriteria]": "Will the plugin report a list of subcriteria being fulfilled? (yes|no). Enter to continue...",
+    "has_subcriteria": "no"
 }

@@ -48,7 +48,8 @@ module provides two test cases out of the box:
 ### #2 Implement the validate() method
 The `validate()` method must:
 1. Implemented in the validator class.
-2. Return a dictionary* containing *at least* the `valid` key, with a boolean value
+   - It is a class method so it must define the `self` argument (see example below)
+3. Return a dictionary* containing *at least* the `valid` key, with a boolean value
    (True|False) that marks the validation as successful or unsuccessful.
    
 The most simple example could be:
@@ -56,8 +57,7 @@ The most simple example could be:
 class FooValidator(BaseValidator):
     valid = False
        
-    @staticmethod
-    def validate():
+    def validate(self):
        return {'valid': self.valid}
 ```
 #### Some remarks when implementing validate() method

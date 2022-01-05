@@ -7,6 +7,6 @@
     "author": "Jane Doe",
     "author_email": "jdoe@janedoe.org",
     "plugin_class_name": "FooValidator",
-    "has_threshold (yes|no)": "no",
-    "has_subcriteria (yes|no)": "no"
+    "has_threshold": "(yes|no)",
+    "has_subcriteria": "(yes|no)"
 }

@@ -17,6 +17,10 @@ SQAaaS platform.
    might help you throughout this task).
 
 ## Remarks on the plugin implementation
+* [Generate the Python module structure for the plugin](#generate-the-python-module-structure-for-the-plugin)
+* [Implement the validate() method](#implement-the-validate-method)
+* [Contribute to reporting-sqaaas-plugins](#contribute-to-reporting-sqaaas-plugins)
+
 ### Generate the Python module structure for the plugin
 #### Using the cookiecuttter template
 If not already in your environment, install

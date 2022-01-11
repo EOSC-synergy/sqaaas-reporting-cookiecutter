@@ -65,14 +65,16 @@ a consequence, this section will explain them further:
    following links:
    - Software QA criteria: https://indigo-dc.github.io/sqa-baseline
    - Service QA criteria: https://eosc-synergy.github.io/service-qa-baseline
-   
+
    _Note: there is a special value `qc_ALL` meant for validating common stdouts,
            such as boolean values_
  * `author`: first and last name of the main developer.
  * `author_email`: email address of the main developer.
  * `plugin_class_name`: name of the main plugin class.
- * `has_threshold`: say 'yes' if the plugin require a threshold for the successful
-    validation.
+ * `threshold`: minimum value (integer) required for the validation assessment
+   to be successful.
+ * `has_additional_cli_args`: say 'yes' if the plugin has additional CLI arguments
+   on top of the ones provided by the `BaseValidator` class.
  * `has_threshold`: say 'yes' when the plugin reports a list of subcriteria being
    fulfilled.
 

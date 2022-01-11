@@ -8,18 +8,22 @@ logger = logging.getLogger('sqaaas.reporting.plugins.{{cookiecutter.plugin_name 
 
 class {{cookiecutter.plugin_class_name}}(sqaaas_utils.BaseValidator):
     valid = False
+    {%- if cookiecutter.threshold is not None %}
+    threshold = {{ cookiecutter.threshold }}
+    {%- endif %}
 
-    {%- if cookiecutter.has_threshold.lower() in ['yes'] %}
+    {%- if cookiecutter.has_additional_cli_args.lower() in ['yes'] %}
     @staticmethod
     def populate_parser(parser):
-        parser.add_argument(
-            '--threshold',
-            metavar='NUMBER',
-            type=int,
-            help=(
-                'Optional argument required by some plugins in order to state '
-                'whether the validation is successful'
-            )
-        )
+        """Additional CLI arguments for the validator
 
+        Example of '--verbosity' flag:
+
+            parser.add_argument(
+                '--verbosity',
+                help='Increase output verbosity'
+            )
+
+        """
+        pass
     {%- endif %}

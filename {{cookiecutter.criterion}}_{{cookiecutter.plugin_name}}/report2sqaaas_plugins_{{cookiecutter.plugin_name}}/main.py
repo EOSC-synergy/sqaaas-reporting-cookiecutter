@@ -8,7 +8,7 @@ logger = logging.getLogger('sqaaas.reporting.plugins.{{cookiecutter.plugin_name 
 
 class {{cookiecutter.plugin_class_name}}(sqaaas_utils.BaseValidator):
     valid = False
-    {%- if cookiecutter.threshold is not None %}
+    {%- if cookiecutter.threshold %}
     threshold = {{ cookiecutter.threshold }}
     {%- endif %}
 

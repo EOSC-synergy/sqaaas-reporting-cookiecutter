@@ -78,6 +78,13 @@ a consequence, this section will explain them further:
      class.
  * `has_additional_cli_args`: say 'yes' if the plugin has additional CLI arguments
    on top of the ones provided by the `BaseValidator` class.
+   - Enabling additional CLI args will add a `populate_parser(parser)` method inside
+     the class `plugin_class_name`. The `parser` input argument is an
+     [argparse.ArgumentParser](https://docs.python.org/3/library/argparse.html#argparse.ArgumentParser)
+     object, and thus, can be used to extend the number of CLI arguments for this
+     validator by using the
+     [add_argument()](https://docs.python.org/3/library/argparse.html#the-add-argument-method)
+     method.
  * `has_subcriteria`: say 'yes' when the plugin reports a list of subcriteria being
    fulfilled.
 

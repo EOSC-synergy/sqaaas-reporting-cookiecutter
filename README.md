@@ -75,7 +75,7 @@ a consequence, this section will explain them further:
    to be successful.
  * `has_additional_cli_args`: say 'yes' if the plugin has additional CLI arguments
    on top of the ones provided by the `BaseValidator` class.
- * `has_threshold`: say 'yes' when the plugin reports a list of subcriteria being
+ * `has_subcriteria`: say 'yes' when the plugin reports a list of subcriteria being
    fulfilled.
 
 ### Implement the validate() method
@@ -109,7 +109,7 @@ class FooValidator(BaseValidator):
     - `validate()` method has been implemented.
     - `validate()` method returns a dictionary with the `valid` flag.
   - They require a sample output of the tool being validated in order to successfully
-    pass the `test_validate_method_output` test. The *output shall be placed within 
+    pass the `test_validate_method_output` test. The *output shall be placed within
     the pytest fixture `<tool_name>_stdout()`* in
     [test_validator.py](%7B%7Bcookiecutter.criterion%7D%7D_%7B%7Bcookiecutter.plugin_name%7D%7D/tests/test_validator.py).
     The generated plugin will contain

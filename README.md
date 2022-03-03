@@ -73,6 +73,9 @@ a consequence, this section will explain them further:
  * `plugin_class_name`: name of the main plugin class.
  * `threshold`: minimum value (integer) required for the validation assessment
    to be successful.
+   - If a value is set here, the class `plugin_class_name` will have a `threshold`
+     attribute, which can be accessed as `self.threshold` inside the methods of the
+     class.
  * `has_additional_cli_args`: say 'yes' if the plugin has additional CLI arguments
    on top of the ones provided by the `BaseValidator` class.
  * `has_subcriteria`: say 'yes' when the plugin reports a list of subcriteria being

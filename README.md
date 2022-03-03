@@ -87,6 +87,9 @@ a consequence, this section will explain them further:
      method.
  * `has_subcriteria`: say 'yes' when the plugin reports a list of subcriteria being
    fulfilled.
+   - Enabling this option will add test cases that ensure both the presence of the
+     `subcriteria` property and its appropriate type within the JSON payload returned by
+     the validator.
 
 ### Implement the validate() method
 The `validate()` method must:

@@ -8,8 +8,8 @@ setup(
     description='Output validator for the {{cookiecutter.tool_name}} tool',
     author='{{cookiecutter.author}}',
     author_email='{{cookiecutter.author_email}}',
-    url='http://github.com/eosc-synergy/sqaaas-reporting-plugins',
-	# For a list of valid classifiers, see https://pypi.org/classifiers/
+    url='https://github.com/eosc-synergy/sqaaas-reporting-plugins',
+    # For a list of valid classifiers, see https://pypi.org/classifiers/
     classifiers=[
         'Intended Audience :: Developers',
         'License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)',

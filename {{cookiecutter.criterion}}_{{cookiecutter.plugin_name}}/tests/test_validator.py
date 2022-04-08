@@ -9,6 +9,7 @@ def {{cookiecutter.plugin_name}}_stdout():
     # FIXME Return a sample tool's stdout as string
     return ""
 
+
 @pytest.fixture
 def validator_opts({{cookiecutter.plugin_name}}_stdout):
     class_args = {
@@ -35,5 +36,4 @@ def test_validate_method_output(validator):
     assert 'valid' in list(result)
     {%- if cookiecutter.has_subcriteria.lower() in ['yes'] %}
     assert 'subcriteria' in list(result)
-    assert type(result['subcriteria']) is list
-    {% endif %}
+    assert type(result['subcriteria']) is list{% endif %}

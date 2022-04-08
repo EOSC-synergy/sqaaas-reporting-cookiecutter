@@ -20,7 +20,7 @@ setup(
     packages=find_packages(),
     entry_points={
         'sqaaas.validators': [
-            '{{cookiecutter.plugin_name}} = report2sqaaas_plugins_{{cookiecutter.plugin_name}}.main:{{cookiecutter.plugin_class_name}}',
+            '{{cookiecutter.plugin_name}} = report2sqaaas_plugins_{{cookiecutter.plugin_name}}.main:{{cookiecutter.plugin_class_name}}', # noqa
         ],
     },
 )

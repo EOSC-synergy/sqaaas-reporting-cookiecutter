@@ -73,10 +73,23 @@ a consequence, this section will explain them further:
  * `plugin_class_name`: name of the main plugin class.
  * `threshold`: minimum value (integer) required for the validation assessment
    to be successful.
+   - If a value is set here, the class `plugin_class_name` will have a `threshold`
+     attribute, which can be accessed as `self.threshold` inside the methods of the
+     class.
  * `has_additional_cli_args`: say 'yes' if the plugin has additional CLI arguments
    on top of the ones provided by the `BaseValidator` class.
- * `has_threshold`: say 'yes' when the plugin reports a list of subcriteria being
+   - Enabling additional CLI args will add a `populate_parser(parser)` method inside
+     the class `plugin_class_name`. The `parser` input argument is an
+     [argparse.ArgumentParser](https://docs.python.org/3/library/argparse.html#argparse.ArgumentParser)
+     object, and thus, can be used to extend the number of CLI arguments for this
+     validator by using the
+     [add_argument()](https://docs.python.org/3/library/argparse.html#the-add-argument-method)
+     method.
+ * `has_subcriteria`: say 'yes' when the plugin reports a list of subcriteria being
    fulfilled.
+   - Enabling this option will add test cases that ensure both the presence of the
+     `subcriteria` property and its appropriate type within the JSON payload returned by
+     the validator.
 
 ### Implement the validate() method
 The `validate()` method must:
@@ -109,7 +122,7 @@ class FooValidator(BaseValidator):
     - `validate()` method has been implemented.
     - `validate()` method returns a dictionary with the `valid` flag.
   - They require a sample output of the tool being validated in order to successfully
-    pass the `test_validate_method_output` test. The *output shall be placed within 
+    pass the `test_validate_method_output` test. The *output shall be placed within
     the pytest fixture `<tool_name>_stdout()`* in
     [test_validator.py](%7B%7Bcookiecutter.criterion%7D%7D_%7B%7Bcookiecutter.plugin_name%7D%7D/tests/test_validator.py).
     The generated plugin will contain

@@ -1,8 +1,8 @@
 import os
+
 from setuptools import find_packages
 from setuptools import setup
-
-from urllib3.util import parse_url
+from urllib.parse import urlparse
 
 
 def load_requirements():
@@ -22,7 +22,7 @@ def load_requirements():
     install_requires_filtered = []
     for req in install_requires:
         if not req.startswith('#'):
-            url_parsed = parse_url(req)
+            url_parsed = urlparse(req)
             fragment = url_parsed.fragment
             if fragment:
                 fragment = fragment.split('=')[-1]

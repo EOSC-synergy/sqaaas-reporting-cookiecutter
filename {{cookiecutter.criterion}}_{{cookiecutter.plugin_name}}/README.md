@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: Copyright contributors to the Software Quality Assurance as a Service (SQAaaS) project.
+
+SPDX-License-Identifier: GPL-3.0-or-later
+-->
+
 # SQAaaS reporting validator plugin for the {{cookiecutter.tool_name}} tool
 
 [![License](https://img.shields.io/github/license/fzhu2e/GraphEM)](https://opensource.org/licenses/GPL-3.0)

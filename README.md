@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: Copyright contributors to the Software Quality Assurance as a Service (SQAaaS) project.
+
+SPDX-License-Identifier: GPL-3.0-or-later
+-->
+
 # Cookiecutter template for SQAaaS reporting plugins (aka validators)
 
 This repository uses the [cookiecutter](https://cookiecutter.readthedocs.io/)

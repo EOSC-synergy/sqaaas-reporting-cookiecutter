@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: Copyright contributors to the Software Quality Assurance as a Service (SQAaaS) project.
+
+SPDX-License-Identifier: GPL-3.0-or-later
+-->
+
 # Contributions
 
 Please note the following aspects when sending us your contribution.
